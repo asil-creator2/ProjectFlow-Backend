@@ -1,0 +1,584 @@
+{
+  "info": {
+    "name": "ProjectFlow API",
+    "description": "Postman collection for the ProjectFlow backend endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "projectflow-api-collection-2026-10-17"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "GET /api/health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/health",
+              "host": ["{{base_url}}"],
+              "path": ["api", "health"]
+            }
+          }
+        },
+        {
+          "name": "GET /api/health/ready",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/health/ready",
+              "host": ["{{base_url}}"],
+              "path": ["api", "health", "ready"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "GET Projects",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects"]
+            }
+          }
+        },
+        {
+          "name": "POST Projects",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Website Redesign\",\n  \"description\": \"Design work for the marketing site.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects"]
+            }
+          }
+        },
+        {
+          "name": "GET Project by ID",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}"]
+            }
+          }
+        },
+        {
+          "name": "PATCH Project by ID",
+          "request": {
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Website Redesign v2\",\n  \"description\": \"Updated planning and launch milestones.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}"]
+            }
+          }
+        },
+        {
+          "name": "DELETE Project by ID",
+          "request": {
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Project Labels",
+      "item": [
+        {
+          "name": "GET Labels",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/labels",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "labels"]
+            }
+          }
+        },
+        {
+          "name": "POST Label",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Marketing\",\n  \"color\": \"#FF5722\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/labels",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "labels"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Project Members",
+      "item": [
+        {
+          "name": "GET Members",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/members",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "members"]
+            }
+          }
+        },
+        {
+          "name": "POST Member",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": \"{{team_member_user_id}}\",\n  \"role\": \"editor\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/members",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "members"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Project Notifications",
+      "item": [
+        {
+          "name": "GET Notifications",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/notifications",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "notifications"]
+            }
+          }
+        },
+        {
+          "name": "POST Notification",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"Sprint review is scheduled for tomorrow.\",\n  \"type\": \"info\",\n  \"read\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/notifications",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "notifications"]
+            }
+          }
+        },
+        {
+          "name": "PATCH Notification Read State",
+          "request": {
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"read\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/notifications/{{notification_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "notifications", "{{notification_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "GET Tasks",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks"]
+            }
+          }
+        },
+        {
+          "name": "POST Task",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Draft homepage copy\",\n  \"description\": \"Write the homepage introduction and CTA copy.\",\n  \"status\": \"todo\",\n  \"due_date\": \"2026-10-25\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks"]
+            }
+          }
+        },
+        {
+          "name": "GET Task by ID",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}"]
+            }
+          }
+        },
+        {
+          "name": "PATCH Task by ID",
+          "request": {
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"in_progress\",\n  \"due_date\": \"2026-10-27\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}"]
+            }
+          }
+        },
+        {
+          "name": "DELETE Task by ID",
+          "request": {
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Task Comments",
+      "item": [
+        {
+          "name": "GET Comments",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}/comments",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}", "comments"]
+            }
+          }
+        },
+        {
+          "name": "POST Comment",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"body\": \"This looks good. I will review the draft before noon.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}/comments",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}", "comments"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Task Checklist",
+      "item": [
+        {
+          "name": "GET Checklist",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}/checklist",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}", "checklist"]
+            }
+          }
+        },
+        {
+          "name": "POST Checklist Item",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Finalize CTA\",\n  \"completed\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}/checklist",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}", "checklist"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Task Subtasks",
+      "item": [
+        {
+          "name": "GET Subtasks",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}/subtasks",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}", "subtasks"]
+            }
+          }
+        },
+        {
+          "name": "POST Subtask",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Review analytics\",\n  \"completed\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}/subtasks",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}", "subtasks"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Task Attachments",
+      "item": [
+        {
+          "name": "GET Attachments",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}/attachments",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}", "attachments"]
+            }
+          }
+        },
+        {
+          "name": "POST Attachment Metadata",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filename\": \"brief.pdf\",\n  \"content_type\": \"application/pdf\",\n  \"size_bytes\": 245760,\n  \"storage_url\": \"https://example.com/storage/brief.pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}/attachments",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}", "attachments"]
+            }
+          }
+        },
+        {
+          "name": "POST Upload File",
+          "request": {
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": "{{attachment_file}}"
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}/attachments/upload?filename={{attachment_filename}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}", "attachments", "upload"],
+              "query": [
+                { "key": "filename", "value": "{{attachment_filename}}" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "GET Attachment Download Link",
+          "request": {
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [{ "key": "token", "value": "{{access_token}}", "type": "string" }]
+            },
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}/tasks/{{task_id}}/attachments/{{attachment_id}}/download",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}", "tasks", "{{task_id}}", "attachments", "{{attachment_id}}", "download"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3000", "type": "string" },
+    { "key": "access_token", "value": "your_supabase_bearer_token_here", "type": "string" },
+    { "key": "project_id", "value": "00000000-0000-0000-0000-000000000000", "type": "string" },
+    { "key": "task_id", "value": "00000000-0000-0000-0000-000000000000", "type": "string" },
+    { "key": "notification_id", "value": "00000000-0000-0000-0000-000000000000", "type": "string" },
+    { "key": "attachment_id", "value": "00000000-0000-0000-0000-000000000000", "type": "string" },
+    { "key": "team_member_user_id", "value": "user_uuid_of_team_member", "type": "string" },
+    { "key": "attachment_filename", "value": "brief.pdf", "type": "string" },
+    { "key": "attachment_file", "value": "C:/path/to/brief.pdf", "type": "string" }
+  ]
+}
